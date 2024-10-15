@@ -4,7 +4,11 @@ import enum
 from typing import List, Dict, Optional
 
 from pydantic import BaseModel
-from pydantic.main import ModelMetaclass
+
+#ModelMetaclass gets moved. 
+#See https://github.com/pydantic/pydantic/issues/6381
+#from pydantic.main import ModelMetaclass
+from pydantic._internal._model_construction import ModelMetaclass
 
 #
 # creates update models where all the fields are optional
