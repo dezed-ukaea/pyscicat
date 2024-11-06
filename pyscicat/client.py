@@ -137,17 +137,17 @@ class ScicatClient:
         #print(response.text)
         if not response.ok:
             result = response.json()
-            print('AAAAAA', result)
-            err = result.get("error", {})
-            if (
-                allow_404
-                and response.status_code == 404
-                and re.match(r"Unknown (.+ )?id", err.get("message", ""))
-            ):
-                # The operation failed but because the object does not exist in SciCat.
-                logger.error("Error in operation %s: %s", operation, err)
-                return None
-            raise ScicatCommError(f"Error in operation {operation}: {err}")
+            #print('AAAAAA', result)
+            #err = result.get("error", {})
+            #if (
+            #    allow_404
+            #    and response.status_code == 404
+            #    and re.match(r"Unknown (.+ )?id", err.get("message", ""))
+            #):
+            #    # The operation failed but because the object does not exist in SciCat.
+            #    logger.error("Error in operation %s: %s", operation, err)
+            #    return None
+            raise ScicatCommError(f"Error in operation {operation}: {result}")
         result = response.json()
         logger.info(
             "Operation '%s' successful%s",
