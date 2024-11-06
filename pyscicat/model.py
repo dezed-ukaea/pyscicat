@@ -85,6 +85,8 @@ class Proposal(Ownable):
         List[dict]
     ]  = None# may need updating with the measurement period model
 
+    metadata : Optional[ dict ] = None
+
 
 class Sample(Ownable):
     """
