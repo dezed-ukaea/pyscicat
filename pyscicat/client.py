@@ -137,6 +137,7 @@ class ScicatClient:
         #print(response.text)
         if not response.ok:
             result = response.json()
+            print('AAAAAA', result)
             err = result.get("error", {})
             if (
                 allow_404
